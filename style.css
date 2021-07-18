@@ -12,7 +12,23 @@
     width: 50px;
     height: 70px;
     position: absolute;
-    top: 350px;
-    left: 150px;
+    bottom: 120px ;
     background-color: red;
+}
+
+.road{
+    width: 300px;
+    height: 100vh;
+    background-color: #2d3436;
+    margin: auto;
+    position: relative;
+    overflow:hidden ;
+}
+
+.lines {
+    width: 10px;
+    height: 100px;
+    background-color: white;
+    margin-left: 150px;
+    position: absolute;
 }
