@@ -26,12 +26,56 @@ function keyUp(e) {
   keys[e.key] = false;
 }
 
+function collide(a,b) {
+  aRect = a.getBoundingClientRect();
+  bRect = b.getBoundingClientRect();
+
+  return !(
+    (aRect.top > bRect.bottom) ||
+    (aRect.left > bRect.right) ||
+    (aRect.right < bRect.left) ||
+    (aRect.bottom < bRect.top)
+  );
+}
+
+function moveLines() {
+  let lines = document.querySelectorAll(".lines");
+
+
+
+  lines.forEach(function (item) {
+    if (item.y >= 700) {
+      item.y -= 750;
+    }
+
+    item.y += player.speed;
+    item.style.top = item.y + "px";
+  });
+}
+
+function moveEnemyCar(car) {
+  let enemy = document.querySelectorAll(".enemy");
+
+  enemy.forEach(function (item) {
+
+    if (item.y >= 800) {
+      item.y -= 500;
+      item.style.left = Math.floor(Math.random() * 350) + "px";
+    }
+
+    item.y += player.speed;
+    item.style.top = item.y + "px";
+  });
+}
+
 function gamePlay() {
   let car = document.querySelector(".car");
   let position = road.getBoundingClientRect();
-  console.log(position);
   if (player.start) {
-    if (keys.ArrowUp && player.y > position.top + 100) {
+    moveLines();
+    moveEnemyCar();
+
+    if (keys.ArrowUp && player.y > position.top + 70) {
       player.y -= player.speed;
     }
     if (keys.ArrowDown && player.y < position.bottom - 70) {
@@ -60,7 +104,8 @@ function gameStart() {
   for (let i = 0; i < 5; i++) {
     let roadLine = document.createElement("div");
     roadLine.setAttribute("class", "lines");
-    roadLine.style.top = (i*150) +"px";
+    roadLine.y = i * 150;
+    roadLine.style.top = roadLine.y + "px";
     road.appendChild(roadLine);
   }
 
@@ -71,6 +116,12 @@ function gameStart() {
   player.x = car.offsetLeft;
   player.y = car.offsetTop;
 
-  console.log("top " + car.offsetTop);
-  console.log("left " + car.offsetLeft);
+  for (let i = 0; i < 3; i++) {
+    let enemyCar = document.createElement("div");
+    enemyCar.setAttribute("class", "enemy");
+    enemyCar.y = (i + 1) * 350 * -1;
+    enemyCar.style.top = enemyCar.y + "px";
+    enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
+    road.appendChild(enemyCar);
+  }
 }
