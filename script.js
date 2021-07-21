@@ -7,7 +7,10 @@ message.addEventListener("click", gameStart);
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
 
-let player = { speed: 5 };
+let player = {
+  speed: 5,
+  score: 0,
+};
 
 let keys = {
   ArrowUp: false,
@@ -19,6 +22,7 @@ let keys = {
 function keyDown(e) {
   e.preventDefault();
   keys[e.key] = true;
+  console.log(e.key);
 }
 
 function keyUp(e) {
@@ -31,17 +35,15 @@ function collide(a,b) {
   bRect = b.getBoundingClientRect();
 
   return !(
-    (aRect.top > bRect.bottom) ||
-    (aRect.left > bRect.right) ||
-    (aRect.right < bRect.left) ||
-    (aRect.bottom < bRect.top)
+    aRect.top > bRect.bottom ||
+    aRect.left > bRect.right ||
+    aRect.right < bRect.left ||
+    aRect.bottom < bRect.top
   );
 }
 
 function moveLines() {
   let lines = document.querySelectorAll(".lines");
-
-
 
   lines.forEach(function (item) {
     if (item.y >= 700) {
@@ -57,9 +59,12 @@ function moveEnemyCar(car) {
   let enemy = document.querySelectorAll(".enemy");
 
   enemy.forEach(function (item) {
+    if (collide(car, item)) {
+      console.log("hit Hit HIt");
+    }
 
     if (item.y >= 800) {
-      item.y -= 500;
+      item.y -= 1000;
       item.style.left = Math.floor(Math.random() * 350) + "px";
     }
 
@@ -73,7 +78,7 @@ function gamePlay() {
   let position = road.getBoundingClientRect();
   if (player.start) {
     moveLines();
-    moveEnemyCar();
+    moveEnemyCar(car);
 
     if (keys.ArrowUp && player.y > position.top + 70) {
       player.y -= player.speed;
@@ -92,6 +97,10 @@ function gamePlay() {
     car.style.left = player.x + "px";
 
     window.requestAnimationFrame(gamePlay);
+    // console.log(player.score++);
+
+    // player.score++;
+    // score.innerText = "Score : " + player.score;
   }
 }
 
