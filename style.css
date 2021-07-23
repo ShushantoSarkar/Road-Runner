@@ -42,6 +42,8 @@ body {
   margin: auto;
   position: relative;
   overflow: hidden;
+  border-left: 5px dashed white;
+  border-right: px dashed white;
 }
 
 .lines {
@@ -56,19 +58,19 @@ body {
   position: absolute;
   top: 15px;
   left: 40px;
-  background-color: rgb(194, 27, 220);
+  background-color: #fcfcfc;
   width: 200px;
   height: 70px;
   line-height: 70px;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 1.3rem;
   font-family: fantasy;
   box-shadow: 0 5px 5px #777;
 }
 
 .previousScore {
-  background-color: rgb(244, 125, 125);
+  background-color: #2d3436;
   width: 200px;
   height: 80px;
   position: absolute;
@@ -84,21 +86,24 @@ body {
 
 .message {
   position: absolute;
-  background-color: #ee5253;
+  background-image: url(images/message.jpeg);
+  background-repeat: no-repeat;
+  /* opacity: 0.7; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(0, 238, 255);
   z-index: 1;
   text-align: center;
-  border: 1px solid #ff6b5b;
+  border: 3px solid white;
   padding: 15px;
   margin: auto;
   width: 50%;
   cursor: pointer;
-  font-family: carfont;
+  /* font-weight:bolder ; */
   letter-spacing: 5;
   font-size: 20px;
+  /* font-family: "Lobster", cursive; */
   word-spacing: 3;
   line-height: 30px;
   text-transform: uppercase;
@@ -107,7 +112,8 @@ body {
 
 .name,
 .cNameBtn {
-  background-color: rgb(182, 113, 113);
+  background-color: #2d3436;
+  color: white;
   width: 200px;
   height: 70px;
   text-align: center;
@@ -118,14 +124,17 @@ body {
   font: 1rem;
   font-family: fantasy;
   box-shadow: 0 5px 5px #777;
+  border: 3px dashed white;
 }
 
 .cNameBtn {
-  top: 100px !important;
+  top: 120px !important;
   right: 95px;
   width: 100px;
   font-style: italic !important;
   height: fit-content;
-  background-color: rgb(74, 191, 87);
+  color: black;
+  background-color: rgb(253, 254, 250);
   line-height: 40px;
+  border: none;
 }

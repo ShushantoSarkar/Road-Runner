@@ -113,21 +113,25 @@ function speedIncrease() {
     console.log("Current Speed : " + player.speed);
     player.speed++;
   }, 3000);
+  // currentSpeed = setTimeout(function(){ console.log("Current Speed : " + player.speed);
+  //   player.speed++;
+  // }, 3000 )
 }
 
-// function enemyCarImage() {
-//   let arr = [
-//     "images/car1.png",
-//     "images/car2.png",
-//     "images/car3.png",
-//     "images/car4.png",
-//     "images/car5.png",
-//     "images/car6.png",
-//   ];
-//   let randomCar = Math.floor(Math.random() * arr.length);
-//   let rc = arr[randomCar];
-//   return "'url(" + rc + ")'";
-// }
+function enemyCarImage() {
+  let arr = [
+    "images/car1.png",
+    "images/car2.png",
+    "images/car3.png",
+    "images/car4.png",
+    "images/car5.png",
+    "images/car6.png",
+  ];
+  let randomCar = Math.floor(Math.random() * arr.length);
+  let rc = arr[randomCar];
+  return ("'(url(" + rc + "))'");
+  // return console.log (rc);
+}
 
 function cName() {
   var nameAlert = prompt("Enter Your Name");
