@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="carGame">
-        <div class="score"></div>
-        <div class="message">
-            <p>Press here to start </p>
-            <p>Arrow keys to move</p>
-            <p>If you hit another car, you will lose.</p>
-        </div>
-        <div class="road "></div>
+      <div class="score"></div>
+
+      <div class="previousScore"></div>
+
+      <div class="name">
+        <h3>Guest</h3>
+      </div>
+
+      <button class="cNameBtn" onclick="cName()">
+        <strong>Change Name</strong>
+      </button>
+
+      <div class="message">
+        <p>Press here to start</p>
+        <p>Arrow keys to move</p>
+        <p>If you hit another car, you will lose.</p>
+      </div>
+
+      <div class="road"></div>
     </div>
+  </body>
 
-</body>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </html>

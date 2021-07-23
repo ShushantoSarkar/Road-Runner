@@ -1,6 +1,7 @@
 const score = document.querySelector(".score");
 const message = document.querySelector(".message");
 const road = document.querySelector(".road");
+const previousScore = document.querySelector(".previousScore");
 
 message.addEventListener("click", gameStart);
 
@@ -22,7 +23,6 @@ let keys = {
 function keyDown(e) {
   e.preventDefault();
   keys[e.key] = true;
-  console.log(e.key);
 }
 
 function keyUp(e) {
@@ -30,7 +30,7 @@ function keyUp(e) {
   keys[e.key] = false;
 }
 
-function collide(a,b) {
+function collide(a, b) {
   aRect = a.getBoundingClientRect();
   bRect = b.getBoundingClientRect();
 
@@ -60,7 +60,8 @@ function moveEnemyCar(car) {
 
   enemy.forEach(function (item) {
     if (collide(car, item)) {
-      console.log("hit Hit HIt");
+      console.log("Hit Hit Hit");
+      endGame();
     }
 
     if (item.y >= 800) {
@@ -97,18 +98,65 @@ function gamePlay() {
     car.style.left = player.x + "px";
 
     window.requestAnimationFrame(gamePlay);
-    // console.log(player.score++);
 
-    // player.score++;
-    // score.innerText = "Score : " + player.score;
+    finalScore = player.score++;
+    localStorage.setItem("previousScore", finalScore);
+
+    // console.log(pScore + "pscore");
+
+    score.innerText = "Current Score : " + finalScore;
   }
 }
 
+function speedIncrease() {
+  currentSpeed = setInterval(function () {
+    console.log("Current Speed : " + player.speed);
+    player.speed++;
+  }, 3000);
+}
+
+// function enemyCarImage() {
+//   let arr = [
+//     "images/car1.png",
+//     "images/car2.png",
+//     "images/car3.png",
+//     "images/car4.png",
+//     "images/car5.png",
+//     "images/car6.png",
+//   ];
+//   let randomCar = Math.floor(Math.random() * arr.length);
+//   let rc = arr[randomCar];
+//   return "'url(" + rc + ")'";
+// }
+
+function cName() {
+  var nameAlert = prompt("Enter Your Name");
+  localStorage.setItem("name", nameAlert);
+  var storedName = localStorage.getItem("name");
+  document.querySelector(".name").innerHTML = storedName;
+}
+
+function endGame() {
+  player.start = false;
+  message.classList.remove("hide");
+  message.innerHTML =
+    "Game Over <br> Your final Score is " +
+    (finalScore + 1) +
+    " Press here to restart the Game.";
+}
+
 function gameStart() {
-  road.classList.remove("hide");
   message.classList.add("hide");
+  road.innerHTML = "";
   player.start = true;
   window.requestAnimationFrame(gamePlay);
+  player.score = 0;
+  player.speed = 5;
+
+  let pScore = localStorage.getItem("previousScore");
+  previousScore.innerText = "Previous Score : " + pScore;
+
+  speedIncrease();
 
   for (let i = 0; i < 5; i++) {
     let roadLine = document.createElement("div");
@@ -130,6 +178,8 @@ function gameStart() {
     enemyCar.setAttribute("class", "enemy");
     enemyCar.y = (i + 1) * 350 * -1;
     enemyCar.style.top = enemyCar.y + "px";
+    enemyCar.style.background = "url(images/car1.png";
+    // enemyCar.style.background=enemyCarImage();
     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
     road.appendChild(enemyCar);
   }
