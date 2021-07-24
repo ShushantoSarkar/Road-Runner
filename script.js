@@ -1,4 +1,3 @@
-
 // Variable has been assing to different classes from HTML
 
 const score = document.querySelector(".score");
@@ -66,7 +65,7 @@ function moveLines() {
   });
 }
 
-// Animation to move and apper the normal car's on the road 
+// Animation to move and apper the normal car's on the road
 function moveEnemyCar(car) {
   let enemy = document.querySelectorAll(".enemy");
 
@@ -115,7 +114,7 @@ function gamePlay() {
 
     // To display the score
     finalScore = player.score++;
-    
+
     // To store the display the previous score
     localStorage.setItem("previousScore", finalScore);
 
@@ -128,19 +127,21 @@ previousScore.innerText = "Previous Score : " + pScore;
 
 // Speed of the game increase in every 5sec
 function speedIncrease() {
-  currentSpeed = setInterval(function () {
+  var currentSpeed = setInterval(function () {
     console.log("Current Speed : " + player.speed);
     player.speed++;
-  }, 5000);
+  }, 3000);
 }
 
+// Gives Random color to enemy car
 function randomColor() {
-  function c(){
-    let hex = Math.floor(Math.random()* 256).toString(16);
+  function c() {
+    let hex = Math.floor(Math.random() * 256).toString(16);
     return ("0" + String(hex)).substr(-2);
   }
   return "#" + c() + c() + c();
-} 
+}
+
 
 // function enemyCarImage() {
 //   let arr = [
@@ -157,7 +158,8 @@ function randomColor() {
 //   // return console.log (rc);
 // }
 
-// Display and Change name 
+
+// Display and Change name
 function cName() {
   var nameAlert = prompt("Enter Your Name");
   localStorage.setItem("name", nameAlert);
@@ -167,9 +169,9 @@ function cName() {
 
 // Displays the name stored , when page reloads
 function showName() {
-  document.querySelector(".name").innerHTML = localStorage.getItem("name");
+  var Sname = (document.querySelector(".name").innerHTML =
+    localStorage.getItem("name"));
 }
-
 showName();
 
 // Changes the message form start to game over when car hit's
@@ -182,7 +184,7 @@ function endGame() {
     " Press here to restart the Game.";
 }
 
-// Make sure is the player DOMRectReadOnly and start's all the animations and hides the start message . 
+// Make sure is the player DOMRectReadOnly and start's all the animations and hides the start message .
 function gameStart() {
   message.classList.add("hide");
   road.innerHTML = "";

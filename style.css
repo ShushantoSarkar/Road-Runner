@@ -88,7 +88,6 @@ body {
   position: absolute;
   background-image: url(images/message.jpeg);
   background-repeat: no-repeat;
-  /* opacity: 0.7; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -100,7 +99,6 @@ body {
   margin: auto;
   width: 50%;
   cursor: pointer;
-  /* font-weight:bolder ; */
   letter-spacing: 5;
   font-size: 20px;
   word-spacing: 3;
@@ -136,4 +134,25 @@ body {
   background-color: rgb(253, 254, 250);
   line-height: 40px;
   border: none;
+}
+
+
+@media only screen and (max-width: 900px) 
+ {
+  *{
+    background-image: url(images/error.png);
+    background-size: 100% 100%;
+
+  }
+
+  .car, .score, .previousScore, .name, .cNameBtn, .message 
+  {
+    visibility: hidden;
+  }
+  
+  .road 
+  {
+    visibility: hidden;
+    background-color: black;
+  }
 }
