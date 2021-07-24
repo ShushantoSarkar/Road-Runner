@@ -30,7 +30,7 @@ body {
   height: 80px;
   position: absolute;
   bottom: 120px;
-  /* background-image:url(images/mycar.png) ; */
+  background: url('images/car.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -43,7 +43,7 @@ body {
   position: relative;
   overflow: hidden;
   border-left: 5px dashed white;
-  border-right: px dashed white;
+  border-right: 5px dashed white;
 }
 
 .lines {
@@ -64,8 +64,8 @@ body {
   line-height: 70px;
   text-align: center;
   color: black;
+  font-family: "Lobster", cursive;
   font-size: 1.3rem;
-  font-family: fantasy;
   box-shadow: 0 5px 5px #777;
 }
 
@@ -77,8 +77,8 @@ body {
   top: 100px;
   left: 40px;
   color: white;
+  font-family: "Lobster", cursive;
   font-size: 1.2rem;
-  font-family: fantasy;
   text-align: center;
   line-height: 80px;
   box-shadow: 0 5px 5px #777;
@@ -103,7 +103,6 @@ body {
   /* font-weight:bolder ; */
   letter-spacing: 5;
   font-size: 20px;
-  /* font-family: "Lobster", cursive; */
   word-spacing: 3;
   line-height: 30px;
   text-transform: uppercase;
@@ -121,8 +120,8 @@ body {
   position: absolute;
   top: 15px;
   right: 40px;
-  font: 1rem;
-  font-family: fantasy;
+  font-size: 1.4rem;
+  font-style: italic !important;
   box-shadow: 0 5px 5px #777;
   border: 3px dashed white;
 }
@@ -131,9 +130,9 @@ body {
   top: 120px !important;
   right: 95px;
   width: 100px;
-  font-style: italic !important;
   height: fit-content;
   color: black;
+  font-size: 0.8rem;
   background-color: rgb(253, 254, 250);
   line-height: 40px;
   border: none;
