@@ -130,7 +130,7 @@ function speedIncrease() {
   var currentSpeed = setInterval(function () {
     console.log("Current Speed : " + player.speed);
     player.speed++;
-  }, 3000);
+  }, 5000);
 }
 
 // Gives Random color to enemy car
